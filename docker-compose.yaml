@@ -30,3 +30,10 @@ services:
       dockerfile: worker.Dockerfile
     depends_on:
       - rabbitmq
+
+  flower:
+    build:
+      context: .
+      dockerfile: flower.Dockerfile
+    ports:
+      - "5555:5555"
