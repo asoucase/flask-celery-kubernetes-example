@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - rabbitmq
+      - db
+
+  rabbitmq:
+    image: rabbitmq
+    ports:
+      - "5672:5672"
+
+  db:
+    image: postgres:10-alpine
+    environment:
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: pass
+    ports:
+      - "5432:5432"
+
+  worker1:
+    build:
+      context: .
+      dockerfile: worker.Dockerfile
+    depends_on:
+      - rabbitmq

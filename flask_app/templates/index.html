@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask & Celery Example</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <h1>Flask & Celery Example</h1>
+
+    <h2>Calculate Fibonacci</h2>
+    <form action="/add" method="post">
+      <label for="n">n:</label>
+      <input type="text" id="n" name="n"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+
+    <h2>Tasks</h2>
+    <table style="width:100%" border="1">
+  <tr>
+    <th>uuid</th>
+    <th>task</th>
+    <th>created</th>
+    <th>started</th>
+    <th>completed</th>
+    <th>result</th>
+  </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.uuid }}</td>
+            <td>{{ task.task }}</td>
+            <td>{{ task.created }}</td>
+            <td>{{ task.started }}</td>
+            <td>{{ task.completed }}</td>
+            <td>{{ task.result }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

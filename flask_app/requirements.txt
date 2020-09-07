@@ -1,0 +1,5 @@
+celery==4.4.7
+click==7.1.2
+Flask==1.1.2
+pony==0.7.13
+psycopg2-binary==2.8.6
