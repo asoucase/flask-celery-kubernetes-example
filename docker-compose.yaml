@@ -1,12 +1,17 @@
 version: '3.1'
 
 services:
+  nginx:
+    build:
+      context: nginx/
+      dockerfile: nginx.Dockerfile
+    ports:
+      - "80:80"
+
   app:
     build:
       context: .
       dockerfile: app.Dockerfile
-    ports:
-      - "5000:5000"
     depends_on:
       - rabbitmq
       - db
