@@ -5,7 +5,7 @@ services:
     build:
       context: nginx/
       dockerfile: nginx.Dockerfile
-    image: arturosoucase/flask-celery-example-nginx
+    image: ${DOCKERHUB_USERNAME}/flask-celery-example-nginx
     ports:
       - "80:80"
 
@@ -13,7 +13,7 @@ services:
     build:
       context: .
       dockerfile: docker/app.Dockerfile
-    image: arturosoucase/flask-celery-example-app
+    image: ${DOCKERHUB_USERNAME}/flask-celery-example-app
     environment:
       SECRET_KEY: 2e86f69da10590a2162929fc14d1ddcf24cf17e0bfec4f78
       POSTGRES_USER: ${POSTGRES_USER}
@@ -39,11 +39,11 @@ services:
     ports:
       - "5432:5432"
 
-  worker1:
+  worker:
     build:
       context: .
       dockerfile: docker/worker.Dockerfile
-    image: arturosoucase/flask-celery-example-worker
+    image: ${DOCKERHUB_USERNAME}/flask-celery-example-worker
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -58,6 +58,6 @@ services:
     build:
       context: .
       dockerfile: docker/flower.Dockerfile
-    image: arturosoucase/flask-celery-example-flower
+    image: ${DOCKERHUB_USERNAME}/flask-celery-example-flower
     ports:
       - "5555:5555"
