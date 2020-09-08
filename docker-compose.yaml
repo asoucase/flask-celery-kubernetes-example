@@ -5,6 +5,7 @@ services:
     build:
       context: nginx/
       dockerfile: nginx.Dockerfile
+    image: arturosoucase/flask-celery-example-nginx
     ports:
       - "80:80"
 
@@ -12,6 +13,7 @@ services:
     build:
       context: .
       dockerfile: app.Dockerfile
+    image: arturosoucase/flask-celery-example-app
     depends_on:
       - rabbitmq
       - db
@@ -33,6 +35,7 @@ services:
     build:
       context: .
       dockerfile: worker.Dockerfile
+    image: arturosoucase/flask-celery-example-worker
     depends_on:
       - rabbitmq
 
@@ -40,5 +43,6 @@ services:
     build:
       context: .
       dockerfile: flower.Dockerfile
+    image: arturosoucase/flask-celery-example-flower
     ports:
       - "5555:5555"
