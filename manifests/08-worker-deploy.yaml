@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: worker
+  name: worker
+  namespace: flask-celery
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: worker
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: worker
+    spec:
+      containers:
+      - image: arturosoucase/flask-celery-example-worker
+        name: worker
+        resources: {}
+status: {}

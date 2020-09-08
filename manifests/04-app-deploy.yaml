@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: uwsgi-app
+  name: uwsgi-app
+  namespace: flask-celery
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uwsgi-app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: uwsgi-app
+    spec:
+      containers:
+      - image: arturosoucase/flask-celery-example-app
+        name: app
+        resources: {}
+status: {}

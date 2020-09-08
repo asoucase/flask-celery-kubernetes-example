@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: postgres
+  name: postgres
+  namespace: flask-celery
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - image: postgres:10-alpine
+        name: postgres
+        env:
+          - name: POSTGRES_USER
+            value: demo
+          - name: POSTGRES_PASSWORD
+            value: pass
+        resources: {}
+status: {}

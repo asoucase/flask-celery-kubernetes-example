@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: flower
+  name: flower
+  namespace: flask-celery
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flower
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: flower
+    spec:
+      containers:
+      - image: arturosoucase/flask-celery-example-flower
+        name: flower
+        resources: {}
+status: {}
