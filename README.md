@@ -24,6 +24,51 @@ Node Ports:
 
 ## Usage
 
+### Docker Compose
+
+Just as simple as running:
+
 ```bash
-$ kubectl apply -f manifests/
+$ docker-compose up --build
 ```
+
+
+
+### Kubernetes
+
+In order to deploy the demo app stack on a kubernetes cluster, you must build and push the images into a container registry. In this repository, we will make use of [docker hub](https://hub.docker.com).
+
+Please login into docker hub with the command:
+
+```bash
+$ docker login
+```
+
+
+
+Steps:
+
+1. Set docker hub username in `.env` file
+
+    ```
+    DOCKERHUB_USERNAME=arturosoucase
+    ```
+
+2. Build images
+
+      ```bash
+    $ docker-compose build
+      ```
+
+3. Push images into Docker Hub
+
+      ```bash
+    $ docker-compose push
+      ```
+
+4. Apply kubernetes manifest files:
+
+    ```bash
+    $ kubectl apply -f manifests/
+    ```
+
