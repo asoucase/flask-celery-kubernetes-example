@@ -16,9 +16,9 @@ Node Ports:
 
 ## Screenshots
 
-![](images/screenshot_01.png)
+![](resources/images/screenshot_01.png)
 
-![](images/screenshot_02.png)
+![](resources/images/screenshot_02.png)
 
 
 
