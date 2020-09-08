@@ -1,9 +1,13 @@
 import json
+import os
 from celery import Celery
 from flask_app import queries
 from flask_app.model import get_db
 
-celery = Celery('tasks', broker='pyamqp://guest@rabbitmq//')
+rbmq_user = os.environ.get('RABBITMQ_USER')  # guest
+rbmq_host = os.environ.get('RABBITMQ_HOST')  # rabbitmq
+celery = Celery('tasks', broker=f'pyamqp://{rbmq_user}@{rbmq_host}//')
+
 
 def fib(n):
     if n == 1:

@@ -1,11 +1,12 @@
 import json
+import os
 from flask import Flask, render_template, request, flash, redirect, url_for
 from flask_app.model import get_db
 from flask_app.queries import get_all_jobs, add_job
 from flask_app.tasks import fib_job
 
 app = Flask(__name__)
-app.secret_key = 'the random string that is not very random...'
+app.secret_key = os.environ.get('SECRET_KEY')
 
 # Connect to Postgres
 db = get_db()

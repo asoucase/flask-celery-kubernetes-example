@@ -28,5 +28,3 @@ COPY uwsgi.ini .
 EXPOSE 9000
 
 CMD ["/usr/local/bin/uwsgi", "--ini", "uwsgi.ini", "--die-on-term"]
-
-

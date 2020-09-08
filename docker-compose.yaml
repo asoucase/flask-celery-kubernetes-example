@@ -14,6 +14,14 @@ services:
       context: .
       dockerfile: app.Dockerfile
     image: arturosoucase/flask-celery-example-app
+    environment:
+      SECRET_KEY: 2e86f69da10590a2162929fc14d1ddcf24cf17e0bfec4f78
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: pass
+      POSTGRES_HOST: db
+      POSTGRES_DB: demo
+      RABBITMQ_USER: guest
+      RABBITMQ_HOST: rabbitmq
     depends_on:
       - rabbitmq
       - db
@@ -36,6 +44,13 @@ services:
       context: .
       dockerfile: worker.Dockerfile
     image: arturosoucase/flask-celery-example-worker
+    environment:
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: pass
+      POSTGRES_HOST: db
+      POSTGRES_DB: demo
+      RABBITMQ_USER: guest
+      RABBITMQ_HOST: rabbitmq
     depends_on:
       - rabbitmq
 

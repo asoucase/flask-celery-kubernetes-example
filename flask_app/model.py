@@ -1,6 +1,7 @@
 from datetime import datetime
-from uuid import UUID, uuid4
-from pony.orm import *
+import os
+from uuid import UUID
+from pony.orm import Database, PrimaryKey, Required, Optional
 
 
 def get_model():
@@ -21,6 +22,10 @@ def get_model():
 def get_db():
     # Connect to Postgres
     db = get_model()
-    db.bind(provider='postgres', user='demo', password='pass', host='db', database='demo')
+    db.bind(provider='postgres',
+            user=os.environ.get('POSTGRES_USER'),
+            password=os.environ.get('POSTGRES_PASSWORD'),
+            host=os.environ.get('POSTGRES_HOST'),
+            database=os.environ.get('POSTGRES_DB'))
     db.generate_mapping(create_tables=True, check_tables=True)
     return db
