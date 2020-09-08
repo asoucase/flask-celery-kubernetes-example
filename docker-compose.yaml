@@ -16,12 +16,12 @@ services:
     image: arturosoucase/flask-celery-example-app
     environment:
       SECRET_KEY: 2e86f69da10590a2162929fc14d1ddcf24cf17e0bfec4f78
-      POSTGRES_USER: demo
-      POSTGRES_PASSWORD: pass
-      POSTGRES_HOST: db
-      POSTGRES_DB: demo
-      RABBITMQ_USER: guest
-      RABBITMQ_HOST: rabbitmq
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_DB: ${POSTGRES_DB}
+      RABBITMQ_USER: ${RABBITMQ_USER}
+      RABBITMQ_HOST: ${RABBITMQ_HOST}
     depends_on:
       - rabbitmq
       - db
@@ -34,8 +34,8 @@ services:
   db:
     image: postgres:10-alpine
     environment:
-      POSTGRES_USER: demo
-      POSTGRES_PASSWORD: pass
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "5432:5432"
 
@@ -45,12 +45,12 @@ services:
       dockerfile: worker.Dockerfile
     image: arturosoucase/flask-celery-example-worker
     environment:
-      POSTGRES_USER: demo
-      POSTGRES_PASSWORD: pass
-      POSTGRES_HOST: db
-      POSTGRES_DB: demo
-      RABBITMQ_USER: guest
-      RABBITMQ_HOST: rabbitmq
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_DB: ${POSTGRES_DB}
+      RABBITMQ_USER: ${RABBITMQ_USER}
+      RABBITMQ_HOST: ${RABBITMQ_HOST}
     depends_on:
       - rabbitmq
 
