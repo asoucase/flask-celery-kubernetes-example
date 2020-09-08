@@ -21,7 +21,7 @@ COPY flask_app/requirements.txt .
 RUN pip3 install -r requirements.txt --user
 
 # Copy application folder
-COPY flask_app/ flask_app/
+COPY flask_app flask_app/
 COPY wsgi.py .
 COPY uwsgi.ini .
 
