@@ -70,4 +70,7 @@ Steps:
     ```bash
     $ kubectl apply -f manifests/
     ```
+   
+### Diagram
 
+![](https://github.com/asoucase/flask-celery-kubernetes-example/blob/master/.github/images/k8s-diagram.svg?raw=true)
