@@ -18,7 +18,7 @@ def fib(n):
         return fib(n-1)+fib(n-2)
 
 
-@celery.task
+@celery.task(task_reject_on_worker_lost=True)
 def fib_job(job_uuid):
     db = get_db()
     queries.set_job_started(db, job_uuid)
@@ -27,5 +27,3 @@ def fib_job(job_uuid):
     ans = fib(payload['n'])
     queries.set_job_completed(db, job_uuid)
     queries.set_job_result(db, job_uuid, str(ans))
-
-
