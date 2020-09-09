@@ -22,4 +22,11 @@ spec:
       - image: arturosoucase/flask-celery-example-app
         name: app
         resources: {}
+        envFrom:
+          - secretRef:
+              name: app-secret
+          - secretRef:
+              name: db-secret
+          - secretRef:
+              name: rabbitmq-secret
 status: {}

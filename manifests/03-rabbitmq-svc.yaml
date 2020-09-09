@@ -8,7 +8,7 @@ metadata:
   namespace: flask-celery
 spec:
   ports:
-  - name: rabbitmq-port
+  - name: client-port
     port: 5672
     protocol: TCP
     targetPort: 5672

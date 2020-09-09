@@ -22,4 +22,9 @@ spec:
       - image: arturosoucase/flask-celery-example-worker
         name: worker
         resources: {}
+        envFrom:
+          - secretRef:
+              name: db-secret
+          - secretRef:
+              name: rabbitmq-secret
 status: {}
