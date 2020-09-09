@@ -1,4 +1,8 @@
 # Flask + Celery + RabbitMQ in Kubernetes
+
+![](https://github.com/asoucase/flask-celery-kubernetes-example/blob/master/.github/images/k8s-diagram.svg?raw=true)
+
+
 This repository contains the code of a demo app developed with Flask that calculates the [Fibonacci number](https://en.wikipedia.org/wiki/Fibonacci_number) in the most non-optimised way possible. 
 
 The application provides the user with a simple form to type in the n-th term of the sequence. Every time a new calculation is submitted, a job gets created and a [celery](https://github.com/celery/celery) worker, using [rabbitmq](https://www.rabbitmq.com) as message broker,  will pick up the job to perform the calculation. 
@@ -57,20 +61,17 @@ Steps:
 
       ```bash
     $ docker-compose build
-      ```
+    ```
 
 3. Push images into Docker Hub
 
       ```bash
     $ docker-compose push
-      ```
+    ```
 
 4. Apply kubernetes manifest files:
 
     ```bash
     $ kubectl apply -f manifests/
     ```
-   
-### Diagram
 
-![](https://github.com/asoucase/flask-celery-kubernetes-example/blob/master/.github/images/k8s-diagram.svg?raw=true)
