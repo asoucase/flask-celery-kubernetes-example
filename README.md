@@ -16,10 +16,9 @@ Node Ports:
 
 ## Screenshots
 
-![](resources/images/screenshot_01.png)
+![](https://github.com/asoucase/flask-celery-kubernetes-example/blob/master/.github/images/screenshot_01.png?raw=true)
 
-![](resources/images/screenshot_02.png)
-
+![](https://github.com/asoucase/flask-celery-kubernetes-example/blob/master/.github/images/screenshot_01.png?raw=true)
 
 
 ## Usage
