@@ -22,7 +22,7 @@ Node Ports:
 
 ![](https://github.com/asoucase/flask-celery-kubernetes-example/blob/master/.github/images/screenshot_01.png?raw=true)
 
-![](https://github.com/asoucase/flask-celery-kubernetes-example/blob/master/.github/images/screenshot_01.png?raw=true)
+![](https://github.com/asoucase/flask-celery-kubernetes-example/blob/master/.github/images/screenshot_02.png?raw=true)
 
 
 ## Usage
